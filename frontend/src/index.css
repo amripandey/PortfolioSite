@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .NavHover {
+      @apply hover:bg-[#0089b6] hover:text-black hover:[text-shadow:_0.5px_0_0_rgb(0_0_0_/_40%)] p-2 rounded-md ;
+    }
+  }
