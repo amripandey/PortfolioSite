@@ -3,7 +3,23 @@
 @tailwind utilities;
 
 @layer components {
-    .NavHover {
-      @apply hover:bg-[#0089b6] hover:text-black hover:[text-shadow:_0.5px_0_0_rgb(0_0_0_/_40%)] p-2 rounded-md ;
+    .NavBar {
+      @apply flex w-full h-fit justify-between items-center text-white text-xl font-sans mt-12
+    }
+
+    .NavElement {
+      @apply hover:bg-[#0089b6] hover:text-black hover:[text-shadow:_0.5px_0_0_rgb(0_0_0_/_40%)] p-2  hover:rounded-t-md uppercase	;
+    }
+
+    .Sections {
+      @apply absolute top-0 inline-block w-full border-t border-white rounded-2xl overflow-hidden;
+    }
+
+    .SectionDisplay{
+      @apply relative w-screen;
+    }
+
+    .SectionTitle {
+      @apply text-6xl text-white font-extrabold font-mono;
     }
   }

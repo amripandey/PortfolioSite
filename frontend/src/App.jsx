@@ -1,23 +1,47 @@
+import { useEffect } from "react";
+
+//page inside components
+import PageSections from "./components/MainPage/PageSections";
+import PageNavigation from "./components/MainPage/PageNavigation";
+import PageTitle from "./components/MainPage/PageTitle";
+
+//states
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setIsNavActive,
+  setNavElementName,
+  setSectionFullScreen,
+} from "./state/pageSlice";
+
+//framer motions
+import { useAnimationControls } from "framer-motion";
+
 function App() {
+  const isActive = useSelector((state) => state.pageState.isNavActive);
 
   return (
-    <main className="bg-stone-950 w-screen h-screen flex justify-center items-center">
+    <main className="bg-stone-950 w-screen h-screen flex flex-col justify-center items-center overflow-hidden">
+      {/* Introductions */}
       <div className="flex flex-col">
-        <div className="text-6xl text-white font-extrabold font-mono">
-          <h1>Hi</h1>
-          <h2>I'm Amrit Pandey</h2>
-        </div>
+        <PageTitle />
 
-        <nav className="flex w-full h-fit justify-between items-center text-white text-xl font-sans mt-12">
-          <h3 className="NavHover">ABOUT ME</h3>
-          <h3 className="NavHover">PROJECTS</h3>
-          <h3 className="NavHover">BLOGS</h3>
-          <h3 className="NavHover">BOOKS</h3>
-          <h3 className="NavHover">RESUME</h3>
-        </nav>
+        {/* navigations */}
+        <PageNavigation />
       </div>
+
+      {/*sections */}
+      <PageSections />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
+
+/*
+# Bugs    
+
+
+# Future works
+1) redux toolkit state managment install [X]
+2) 
+*/
