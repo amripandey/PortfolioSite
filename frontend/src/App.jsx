@@ -1,37 +1,33 @@
-import { useEffect } from "react";
-
-//page inside components
-import PageSections from "./components/MainPage/PageSections";
+// import PageSections from "./components/MainPage/PageSections";
 import PageNavigation from "./components/MainPage/PageNavigation";
 import PageTitle from "./components/MainPage/PageTitle";
-
-//states
-import { useSelector, useDispatch } from "react-redux";
-import {
-  setIsNavActive,
-  setNavElementName,
-  setSectionFullScreen,
-} from "./state/pageSlice";
+import Sections from "./components/MainPage/Section";
+import BackgroundLines from "./components/extra/backgroundlines";
+import MouseFollower from "./components/extra/MouseFollower";
 
 //framer motions
 import { useAnimationControls } from "framer-motion";
+import { motion } from "framer-motion";
 
 function App() {
-  const isActive = useSelector((state) => state.pageState.isNavActive);
 
   return (
-    <main className="bg-stone-950 w-screen h-screen flex flex-col justify-center items-center overflow-hidden">
+    <main className="bg-[#1b1b2a] w-screen h-screen overflow-hidden absolute top-0 z-0" >
+      {/*Backgroun animation*/}
+      <BackgroundLines />
+      <MouseFollower />
+
       {/* Introductions */}
-      <div className="flex flex-col">
-        <PageTitle />
+      < div className="absolute top-0 z-20 w-full h-screen " >
+        <div className="flex flex-col w-full h-full justify-center items-center">
+          <PageTitle />
+          <PageNavigation />
+        </div>
+      </div >
 
-        {/* navigations */}
-        <PageNavigation />
-      </div>
-
-      {/*sections */}
-      <PageSections />
-    </main>
+      {/* Sections */}
+      < Sections />
+    </main >
   );
 }
 
@@ -42,6 +38,4 @@ export default App;
 
 
 # Future works
-1) redux toolkit state managment install [X]
-2) 
 */

@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    navElementName: "",
-    isNavActive: false,
+    activeSectionName: "",
     isSectionFullScreen: false,
+    isPeekWindowActive: false
 }
 
 export const pageSlice = createSlice({
@@ -14,18 +14,17 @@ export const pageSlice = createSlice({
             state.isSectionFullScreen = !state.isSectionFullScreen;
         },
 
-        setNavElementName: (state, action) => {
-            state.navElementName = action.payload;
+        setActiveSectionName: (state, action) => {
+            state.activeSectionName = action.payload;
         },
 
-        setIsNavActive: (state, action) => {
-            state.isNavActive = action.payload;
+        setIsPeekWindowActive: (state, action) => {
+            state.isPeekWindowActive = action.payload;
         }
-
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setIsNavActive, setSectionFullScreen, setNavElementName } = pageSlice.actions
+export const { setIsPeekWindowActive, setActiveSectionName, setSectionFullScreen } = pageSlice.actions
 
 export default pageSlice.reducer
